@@ -1,24 +1,32 @@
 import "./style.css";
 
 const userInterfaceComponents = (function UserInterfaceComponents() {
+  const menuButton = document.querySelector(".menu-button");
+  const menuOptions = document.querySelector(".menu-options");
 
-    const menuButton = () => {
-        const menuButton = document.querySelector(".menu-button");
-        const menuOptions = document.querySelector(".menu-options");
-        let isShowing = 0;
+  const submitButton = document.querySelector(".submit-button");
+  const submitOptions = document.querySelector(".submit-options");
 
-        menuButton.addEventListener("click", () => {
-            if (isShowing === 0) {
-                menuOptions.classList.add("visible");
-                isShowing = 1;
-            } else {
-                menuOptions.classList.remove("visible");
-                isShowing = 0;
-            }
-        });
-    }
+  const dropdownToggle = (button, options) => {
+    button.addEventListener("click", () => {
+      if (!options.classList.contains("visible")) {
+        options.classList.add("visible");
+      } else {
+        options.classList.remove("visible");
+      }
+    });
+  };
 
-    return { menuButton }
+  const menuOptionToggle = () => {
+    dropdownToggle(menuButton, menuOptions);
+  };
+
+  const submitOptionToggle = () => {
+    dropdownToggle(submitButton, submitOptions);
+  };
+
+  return { menuOptionToggle, submitOptionToggle };
 })();
 
-userInterfaceComponents.menuButton();
+userInterfaceComponents.menuOptionToggle();
+userInterfaceComponents.submitOptionToggle();
