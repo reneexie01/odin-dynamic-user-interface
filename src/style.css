@@ -1,5 +1,10 @@
+/* Menu */
+
 body {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu-section {
   display: flex;
   justify-content: space-between;
 }
@@ -23,6 +28,7 @@ body {
 .menu-options,
 .submit-options {
   display: none;
+  position: absolute;
 }
 
 .visible {
@@ -33,7 +39,7 @@ ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  max-width: 200px;
+  width: 200px;
   background-color: lightgray;
   border: 1px solid black;
 }
@@ -50,4 +56,32 @@ li {
 .submit-opinion:hover,
 .subimt-advertisements:hover {
   background-color: goldenrod;
+}
+
+/* Image carousel */
+
+.image-carousel {
+  border: 1px solid black;
+  width: 50%;
+  height: 300px;
+  display: flex;
+  margin: auto;
+}
+
+.image-navigators {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.navigator-button {
+  border: 1px solid black;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.pokemon {
+    margin: auto;
 }
