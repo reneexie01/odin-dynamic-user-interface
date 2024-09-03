@@ -5,4 +5,5 @@ import { imageCarousel } from "./image-carousel.js";
 userInterfaceComponents.menuOptionToggle();
 userInterfaceComponents.submitOptionToggle();
 
-imageCarousel.generateDefaultCarousel();
+imageCarousel.carouselButtonNavigator();
+imageCarousel.carouselContainerNavigator();
