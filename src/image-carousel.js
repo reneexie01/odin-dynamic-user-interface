@@ -83,20 +83,22 @@ const imageCarousel = (function ImageCarousel() {
         img.setAttribute("alt", `${(pokedex[counter], name)}`);
         img.setAttribute("class", "pokemon");
         container.appendChild(img);
-        console.log(counter);
     })
   }
 
   const rotatingIntervalCarousel = () => {
     setInterval(() => {
-        counter++;
+        if (counter >= 4) {
+            counter = 0
+        } else {
+            counter++;
+        }
         container.innerHTML = "";
         const img = document.createElement("img");
         img.setAttribute("src", `${pokedex[counter].url}`);
         img.setAttribute("alt", `${(pokedex[counter], name)}`);
         img.setAttribute("class", "pokemon");
         container.appendChild(img);
-        console.log(counter);
     }, 5000)
   }
 
