@@ -6,4 +6,5 @@ userInterfaceComponents.menuOptionToggle();
 userInterfaceComponents.submitOptionToggle();
 
 imageCarousel.carouselButtonNavigator();
-imageCarousel.carouselContainerNavigator();
+imageCarousel.carouselContainerNavigatorLeft();
+imageCarousel.carouselContainerNavigatorRight();

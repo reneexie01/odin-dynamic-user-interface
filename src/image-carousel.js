@@ -25,6 +25,8 @@ const imageCarousel = (function ImageCarousel() {
   ];
 
   const container = document.querySelector(".image-carousel");
+  const leftButton = document.querySelector(".left-arrow");
+  const rightButton = document.querySelector(".right-arrow");
   const navigatorButtons = document.querySelectorAll(".navigator-button");
   let counter = 0;
 
@@ -38,35 +40,43 @@ const imageCarousel = (function ImageCarousel() {
         img.setAttribute("alt", `${(pokedex[id], name)}`);
         img.setAttribute("class", "pokemon");
         container.appendChild(img);
-        counter = Number(id) + 1;
+        counter = Number(id);
       });
     });
   };
 
-  const carouselContainerNavigator = () => {
-    container.addEventListener("click", () => {
-        if (counter > 4) {
-            counter = 0;
-            container.innerHTML = "";
-            const img = document.createElement("img");
-            img.setAttribute("src", `${pokedex[counter].url}`);
-            img.setAttribute("alt", `${(pokedex[counter], name)}`);
-            img.setAttribute("class", "pokemon");
-            container.appendChild(img);
-            counter++;
+  const carouselContainerNavigatorLeft = () => {
+    leftButton.addEventListener("click", () => {
+        if (counter < 0 || !counter) {
+            counter = 4;
         } else {
-            container.innerHTML = "";
-            const img = document.createElement("img");
-            img.setAttribute("src", `${pokedex[counter].url}`);
-            img.setAttribute("alt", `${(pokedex[counter], name)}`);
-            img.setAttribute("class", "pokemon");
-            container.appendChild(img);
-            counter++;
+            counter--;
         }
+        container.innerHTML = "";
+        const img = document.createElement("img");
+        img.setAttribute("src", `${pokedex[counter].url}`);
+        img.setAttribute("alt", `${(pokedex[counter], name)}`);
+        img.setAttribute("class", "pokemon");
+        container.appendChild(img);
     })
   }
 
-//TODO: If clicking the frame it should move to the next one
+  const carouselContainerNavigatorRight = () => {
+    rightButton.addEventListener("click", () => {
+        if (counter >= 4) {
+            counter = 0;
+        } else {
+            counter++;
+        }
+        container.innerHTML = "";
+        const img = document.createElement("img");
+        img.setAttribute("src", `${pokedex[counter].url}`);
+        img.setAttribute("alt", `${(pokedex[counter], name)}`);
+        img.setAttribute("class", "pokemon");
+        container.appendChild(img);
+        console.log(counter);
+    })
+  }
 
-  return { carouselButtonNavigator, carouselContainerNavigator };
+  return { carouselButtonNavigator, carouselContainerNavigatorLeft, carouselContainerNavigatorRight };
 })();
