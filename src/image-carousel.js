@@ -30,6 +30,15 @@ const imageCarousel = (function ImageCarousel() {
   const navigatorButtons = document.querySelectorAll(".navigator-button");
   let counter = 0;
 
+  const defaultImageCarousel = () => {
+    container.innerHTML = "";
+        const img = document.createElement("img");
+        img.setAttribute("src", `${pokedex[0].url}`);
+        img.setAttribute("alt", `${(pokedex[0], name)}`);
+        img.setAttribute("class", "pokemon");
+        container.appendChild(img);
+  }
+
   const carouselButtonNavigator = () => {
     navigatorButtons.forEach((button) => {
       button.addEventListener("click", (e) => {
@@ -78,5 +87,18 @@ const imageCarousel = (function ImageCarousel() {
     })
   }
 
-  return { carouselButtonNavigator, carouselContainerNavigatorLeft, carouselContainerNavigatorRight };
+  const rotatingIntervalCarousel = () => {
+    setInterval(() => {
+        counter++;
+        container.innerHTML = "";
+        const img = document.createElement("img");
+        img.setAttribute("src", `${pokedex[counter].url}`);
+        img.setAttribute("alt", `${(pokedex[counter], name)}`);
+        img.setAttribute("class", "pokemon");
+        container.appendChild(img);
+        console.log(counter);
+    }, 5000)
+  }
+
+  return { carouselButtonNavigator, defaultImageCarousel, carouselContainerNavigatorLeft, carouselContainerNavigatorRight, rotatingIntervalCarousel };
 })();
